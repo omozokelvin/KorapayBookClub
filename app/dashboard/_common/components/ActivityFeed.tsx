@@ -30,7 +30,7 @@ export default function ActivityFeed() {
         role: 'Job Hunt',
       },
       {
-        fullName: 'Jone Copper',
+        fullName: 'Jone Baddest',
         activity: 'APPLYING',
         activityDate: subMinutes(new Date(), 10),
         image: '/public/images/avatar-3.svg',
@@ -68,6 +68,7 @@ export default function ActivityFeed() {
         <Box display="flex" flexDirection="column">
           {activities.map((item) => (
             <Activity
+              key={item.fullName}
               fullName={item.fullName}
               activity={item.activity}
               activityDate={item.activityDate}
