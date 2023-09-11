@@ -24,15 +24,15 @@ export default function Activity(props: Props) {
         <Avatar alt={fullName} src={image} />
         <Box>
           <Box display="flex" columnGap={0.5}>
-            <Typography variant="body2" color="grey.400" fontWeight={700}>
+            <Typography variant="body2" color="grey.200" fontWeight={700}>
               {fullName}
             </Typography>
-            <Typography variant="body2" color="grey.400">
+            <Typography variant="body2" color="grey.200">
               {activity === 'APPLYING'
                 ? ' applied for the job '
                 : ' Created new account as a '}
             </Typography>
-            <Typography variant="body2" fontWeight={700} color="grey.400">
+            <Typography variant="body2" fontWeight={700} color="grey.200">
               {role}
             </Typography>
           </Box>

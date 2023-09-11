@@ -1,26 +1,11 @@
 import { createTheme } from '@mui/material/styles';
 import { Inter } from 'next/font/google';
-import { CSSProperties } from 'react';
 
 export const inter = Inter({
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
 });
-
-declare module '@mui/material/styles' {
-  interface Theme {
-    custom: {
-      gradient: CSSProperties['backgroundImage'];
-    };
-  }
-  // allow configuration using `createTheme`
-  interface ThemeOptions {
-    custom?: {
-      gradient: CSSProperties['backgroundImage'];
-    };
-  }
-}
 
 // Create a theme instance.
 const theme = createTheme({
@@ -61,9 +46,6 @@ const theme = createTheme({
   typography: {
     fontFamily: inter.style.fontFamily,
   },
-  custom: {
-    gradient: ``,
-  },
   components: {
     MuiCard: {
       styleOverrides: {
@@ -79,11 +61,6 @@ const theme = createTheme({
         root: {
           textTransform: 'unset',
           fontSize: '1rem',
-        },
-        containedPrimary: {
-          '&:hover': {
-            backgroundColor: '#ff8d00',
-          },
         },
       },
     },
@@ -107,8 +84,6 @@ const theme = createTheme({
     },
   },
 });
-
-theme.custom.gradient = `linear-gradient(180deg, ${theme.palette.primary.main} 0%, ${theme.palette.secondary.main} 100%)`;
 
 theme.typography.h2 = {
   ...theme.typography.h2,

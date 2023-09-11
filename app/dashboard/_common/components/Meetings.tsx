@@ -15,7 +15,7 @@ export default function Meetings() {
       <Stack>
         <Box display="flex" alignItems="center" justifyContent="space-between">
           <Typography variant="h6" fontWeight={700}>
-            Statistics of active Applications
+            Meetings
           </Typography>
 
           <TextField
