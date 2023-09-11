@@ -1,3 +1,4 @@
+import Meeting from '@/app/dashboard/_common/components/Meeting';
 import {
   Box,
   Card,
@@ -6,10 +7,34 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import { useState } from 'react';
+import { ComponentProps, useMemo, useState } from 'react';
 
 export default function Meetings() {
-  const [selectValue, setSelectValue] = useState('month');
+  const [selectValue, setSelectValue] = useState('new');
+
+  const meetings: Array<ComponentProps<typeof Meeting>> = useMemo(() => {
+    return [
+      {
+        title: 'Interview',
+        meetingDate: new Date(),
+        startTime: '9:00am',
+        endTime: '11:30am',
+      },
+      {
+        title: 'Interview',
+        meetingDate: new Date(),
+        startTime: '9:00am',
+        endTime: '11:30am',
+      },
+      {
+        title: 'Interview',
+        meetingDate: new Date(),
+        startTime: '9:00am',
+        endTime: '11:30am',
+      },
+    ];
+  }, []);
+
   return (
     <Card>
       <Stack>
@@ -33,9 +58,20 @@ export default function Meetings() {
               },
             }}
           >
-            <MenuItem value="month">Month</MenuItem>
-            <MenuItem value="year">Year</MenuItem>
+            <MenuItem value="new">Create New</MenuItem>
           </TextField>
+        </Box>
+
+        <Box display="flex" flexDirection="column">
+          {meetings.map((item) => (
+            <Meeting
+              key={item.title}
+              title={item.title}
+              meetingDate={item.meetingDate}
+              startTime={item.startTime}
+              endTime={item.endTime}
+            />
+          ))}
         </Box>
       </Stack>
     </Card>
