@@ -13,30 +13,36 @@ export default function Activity(props: Props) {
   const { fullName, activity, activityDate, role, image } = props;
 
   return (
-    <Box display="flex" columnGap={2}>
-      <Avatar alt={fullName} src={image} />
+    <Box
+      display="flex"
+      alignItems="center"
+      columnGap={2}
+      justifyContent="space-between"
+      my={2}
+    >
+      <Box display="flex" alignItems="center" columnGap={1}>
+        <Avatar alt={fullName} src={image} />
+        <Box>
+          <Box display="flex" columnGap={0.5}>
+            <Typography variant="body2" color="grey.400" fontWeight={700}>
+              {fullName}
+            </Typography>
+            <Typography variant="body2" color="grey.400">
+              {activity === 'APPLYING'
+                ? ' applied for the job '
+                : ' Created new account as a '}
+            </Typography>
+            <Typography variant="body2" fontWeight={700} color="grey.400">
+              {role}
+            </Typography>
+          </Box>
 
-      <Box>
-        <Box display="flex">
-          <Typography variant="body2" color="grey.400" fontWeight={700}>
-            {fullName}
-          </Typography>{' '}
-          <Typography variant="body2" color="grey.400">
-            {' '}
-            {activity === 'APPLYING'
-              ? 'applied for the job'
-              : 'Created new account as a'}
-          </Typography>{' '}
-          <Typography variant="body2" fontWeight={700} color="grey.400">
-            {role}
+          <Typography>
+            {formatDistance(activityDate, new Date(), {
+              addSuffix: true,
+            })}
           </Typography>
         </Box>
-
-        <Typography>
-          {formatDistance(activityDate, new Date(), {
-            addSuffix: true,
-          })}
-        </Typography>
       </Box>
 
       <Chip
@@ -44,12 +50,13 @@ export default function Activity(props: Props) {
         sx={{
           justifySelf: 'flex-end',
           fontSize: '0.75rem',
+          fontWeight: 700,
           backgroundColor: (theme) =>
             alpha(
               theme.palette[activity === 'APPLYING' ? 'info' : 'success'].main,
               0.1
             ),
-          color: activity === 'APPLYING' ? 'info' : 'success.main',
+          color: activity === 'APPLYING' ? 'info.main' : 'success.main',
         }}
       />
     </Box>

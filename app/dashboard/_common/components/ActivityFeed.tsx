@@ -24,7 +24,7 @@ export default function ActivityFeed() {
       },
       {
         fullName: 'Jone Copper',
-        activity: 'APPLYING',
+        activity: 'SIGNUP',
         activityDate: subHours(new Date(), 4),
         image: '/public/images/avatar-2.svg',
         role: 'Job Hunt',
