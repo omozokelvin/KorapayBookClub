@@ -16,7 +16,7 @@ export default function Activity(props: Props) {
     <Box
       display="flex"
       alignItems="center"
-      columnGap={2}
+      columnGap={3}
       justifyContent="space-between"
       my={2}
     >
