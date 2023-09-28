@@ -1,5 +1,4 @@
 import SingleBook from '@/app/_common/components/forPages/home/SingleBook';
-import useBreakPoints from '@/app/_common/hooks/useBreakPoints';
 import useCustomRouter, {
   QueryParamEnum,
 } from '@/app/_common/hooks/useCustomRouter';
@@ -8,8 +7,6 @@ import { Box, Divider, Grid, Stack, Typography } from '@mui/material';
 import { useMemo } from 'react';
 
 export default function AllBooks() {
-  const { medium: mediumDownwards } = useBreakPoints('down');
-
   const { getQueryParam } = useCustomRouter();
 
   const search = getQueryParam(QueryParamEnum.search) || '';
@@ -26,15 +23,13 @@ export default function AllBooks() {
 
   return (
     <Stack mb={5} px={5}>
-      {!mediumDownwards && (
-        <Box>
-          <Typography variant="h2" mb={2}>
-            All Books
-          </Typography>
+      <Box>
+        <Typography variant="h2" mb={2}>
+          All Books
+        </Typography>
 
-          <Divider sx={{ mb: '23px' }} />
-        </Box>
-      )}
+        <Divider sx={{ mb: '23px' }} />
+      </Box>
 
       <Grid container spacing={'20px'}>
         {filteredBooks.map((book) => (

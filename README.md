@@ -32,5 +32,6 @@ yarn dev
 6. **Deployment**: The application is deployed on Vercel, ensuring high availability and performance.
 7. **Broken Links**: Aside from the home page, I didn't cater for other links
 8. **Recently Added**: I just used a flag to denote the recently added books, although business should give a criteria for how to filter those.
+9. **Filtering Technique**: I use the search param to filter both the recently added sections and all books section, I didn't filter the slider. so both sections shows up with filtered results
 
 We hope you enjoy using KoraPayBooks as much as we enjoyed building it! Happy coding! 🚀

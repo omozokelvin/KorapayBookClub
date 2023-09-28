@@ -1,29 +1,37 @@
 import SingleBook from '@/app/_common/components/forPages/home/SingleBook';
-import useBreakPoints from '@/app/_common/hooks/useBreakPoints';
+import useCustomRouter, {
+  QueryParamEnum,
+} from '@/app/_common/hooks/useCustomRouter';
 import { RootState, useSelector } from '@/app/_common/redux/store';
 import { Box, Divider, Grid, Stack, Typography } from '@mui/material';
 import { useMemo } from 'react';
 
 export default function RecentlyAdded() {
-  const { medium: mediumDownwards } = useBreakPoints('down');
+  const { getQueryParam } = useCustomRouter();
 
   const { books } = useSelector((state: RootState) => state.books);
 
+  const search = getQueryParam(QueryParamEnum.search) || '';
+
   const recentlyAddedBooks = useMemo(() => {
-    return books.filter((book) => book.recentlyAdded);
-  }, [books]);
+    return books
+      .filter((book) => book.recentlyAdded)
+      .filter((book) => {
+        const searchString = book.title + ' - ' + book?.authors.join(', ');
+
+        return searchString.toLowerCase().includes(search.toLowerCase());
+      });
+  }, [books, search]);
 
   return (
     <Stack mb={5} px={5}>
-      {!mediumDownwards && (
-        <Box>
-          <Typography variant="h2" mb={2}>
-            Recently Added
-          </Typography>
+      <Box>
+        <Typography variant="h2" mb={2}>
+          Recently Added
+        </Typography>
 
-          <Divider sx={{ mb: '23px' }} />
-        </Box>
-      )}
+        <Divider sx={{ mb: '23px' }} />
+      </Box>
 
       <Grid container spacing={'20px'}>
         {recentlyAddedBooks.map((book) => (
