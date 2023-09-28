@@ -1,0 +1,61 @@
+.featuredBooks :global(.swiper-wrapper) {
+  width: 100%;
+  margin-bottom: 42px;
+}
+
+.featuredBooks :global(.swiper-slide) {
+  width: auto;
+  margin-right: 20px;
+}
+
+.featuredBooks :global(.swiper-pagination-bullet) {
+  height: 8px;
+  width: 8px;
+  background-color: #dddddd;
+}
+
+.featuredBooks :global(.swiper-pagination-bullet-active) {
+  background-color: #65c100;
+}
+
+.featuredBooks :global(.swiper-button-prev),
+.featuredBooks :global(.swiper-button-next) {
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(248, 248, 250, 0.8) 0%,
+    #f8f8fa 51.36%,
+    rgba(248, 248, 250, 0.8) 100%
+  );
+  opacity: 0.8;
+  width: 40px;
+}
+
+.featuredBooks :global(.swiper-button-prev) {
+  left: 0;
+  top: 0;
+}
+
+.featuredBooks :global(.swiper-button-next) {
+  right: 0;
+  top: 0;
+}
+
+.featuredBooks :global(.swiper-button-prev) {
+  left: 0;
+  top: 0;
+}
+
+.featuredBooks :global(.swiper-button-prev::after) {
+  content: url('/images/swiper-previous-button.svg');
+}
+
+.featuredBooks :global(.swiper-button-next::after) {
+  content: url('/images/swiper-next-button.svg');
+}
+
+@media (max-width: 900px) {
+  .featuredBooks :global(.swiper-slide) {
+    margin-right: 5px;
+  }
+}

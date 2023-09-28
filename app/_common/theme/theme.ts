@@ -1,7 +1,8 @@
 import { createTheme } from '@mui/material/styles';
-import { Inter } from 'next/font/google';
+import { Ubuntu } from 'next/font/google';
 
-export const inter = Inter({
+export const ubuntu = Ubuntu({
+  weight: ['300', '400', '500', '700'],
   subsets: ['latin'],
   display: 'swap',
   fallback: ['Helvetica', 'Arial', 'sans-serif'],
@@ -11,75 +12,40 @@ export const inter = Inter({
 const theme = createTheme({
   palette: {
     background: {
-      default: '#f5f6fa',
-    },
-    success: {
-      main: '#39cb8a',
+      default: '#fefefe',
     },
     primary: {
-      main: '#387dff',
-    },
-    secondary: {
-      main: '#387dff',
+      main: '#65C100',
     },
     error: {
-      main: '#fe5632',
-    },
-    common: {
-      black: '#1D2541',
-      white: '#F1F5F7',
-    },
-    warning: {
-      main: '#fea602',
-    },
-    info: {
-      main: '#56ccf2',
+      main: '#D0011B',
     },
     grey: {
-      100: '#B2B2B2',
-      200: '#333333',
-      300: '#828284',
-      400: '#29292b',
-      500: '#edf1fc',
+      100: '#AAAAAA',
     },
   },
   typography: {
-    fontFamily: inter.style.fontFamily,
+    fontFamily: ubuntu.style.fontFamily,
   },
   components: {
-    MuiCard: {
+    MuiDivider: {
       styleOverrides: {
         root: {
-          padding: '24px',
-          boxShadow: 'rgb(0 0 0 / 5%) 0rem 1.25rem 1.6875rem 0rem',
-          borderRadius: '16px',
+          borderColor: '#EEEEEE',
         },
       },
     },
-    MuiButton: {
+    MuiContainer: {
       styleOverrides: {
         root: {
-          textTransform: 'unset',
-          fontSize: '1rem',
+          paddingLeft: 0,
+          paddingRight: 0,
+          '@media (min-width:600px)': {
+            paddingLeft: 0,
+            paddingRight: 0,
+          },
         },
-      },
-    },
-    MuiFormHelperText: {
-      styleOverrides: {
-        root: {
-          fontSize: '0.75rem',
-        },
-      },
-    },
-    MuiInput: {
-      styleOverrides: {
-        root: {
-          borderRadius: '8px',
-          backgroundColor: '#F5F7F9',
-          border: '1px solid rgba(0, 0, 0, 0.12)',
-          height: '56px',
-          padding: '16.5px 14px',
-        },
+        //min widwth
       },
     },
   },
@@ -87,10 +53,28 @@ const theme = createTheme({
 
 theme.typography.h2 = {
   ...theme.typography.h2,
-  fontSize: '1.625rem',
+  fontSize: '0.875rem',
+  fontWeight: 400,
+  letterSpacing: '3px',
+  textTransform: 'uppercase',
+};
+
+theme.typography.caption = {
+  ...theme.typography.caption,
+  lineHeight: '15px',
+};
+
+theme.typography.subtitle1 = {
+  ...theme.typography.subtitle1,
+  fontSize: '1.125rem',
   fontWeight: 700,
-  lineHeight: '2.125rem',
-  letterSpacing: '2px',
+  lineHeight: 'normal',
+};
+
+theme.typography.subtitle2 = {
+  ...theme.typography.subtitle2,
+  fontWeight: 700,
+  lineHeight: 'normal',
 };
 
 export default theme;

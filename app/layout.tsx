@@ -1,14 +1,10 @@
-import { AuthContextProvider } from '@/app/_common/contexts/AuthContext';
-import NotistackProvider from '@/app/_common/providers/NotistackProvider';
+'use client';
+import DashboardLayout from '@/app/_common/layouts/DashboardLayout';
+import { store } from '@/app/_common/redux/store';
 import ThemeRegistry from '@/app/_common/theme/ThemeRegistry';
-import type { Metadata } from 'next';
 import { ReactNode } from 'react';
+import { Provider as ReduxProvider } from 'react-redux';
 import './globals.css';
-
-export const metadata: Metadata = {
-  title: 'Duplo',
-  description: 'Duplo - Dashboard template built with Next.js and MUI',
-};
 
 type Props = {
   children: ReactNode;
@@ -20,11 +16,11 @@ export default function RootLayout(props: Props) {
   return (
     <html lang="en">
       <body>
-        <ThemeRegistry options={{ key: 'mui' }}>
-          <AuthContextProvider>
-            <NotistackProvider>{children}</NotistackProvider>
-          </AuthContextProvider>
-        </ThemeRegistry>
+        <ReduxProvider store={store}>
+          <ThemeRegistry options={{ key: 'mui' }}>
+            <DashboardLayout>{children}</DashboardLayout>
+          </ThemeRegistry>
+        </ReduxProvider>
       </body>
     </html>
   );
