@@ -30,5 +30,7 @@ yarn dev
 4. **MUI**: We chose MUI as our component library due to its comprehensive set of pre-made components and customization capabilities.
 5. **GitHub**: The project is hosted on GitHub, enabling easy version control and collaboration.
 6. **Deployment**: The application is deployed on Vercel, ensuring high availability and performance.
+7. **Broken Links**: Aside from the home page, I didn't cater for other links
+8. **Recently Added**: I just used a flag to denote the recently added books, although business should give a criteria for how to filter those.
 
 We hope you enjoy using KoraPayBooks as much as we enjoyed building it! Happy coding! 🚀
