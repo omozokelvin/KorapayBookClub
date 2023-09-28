@@ -119,7 +119,7 @@ export default function SideDrawer(props: Props) {
           overflowX: 'hidden',
           backgroundColor: 'background.paper',
           borderRight: 'unset',
-          overflowY: 'clip',
+          overflowY: 'auto',
           pt: mediumDownwards ? '30px' : '100px',
           '::-webkit-scrollbar': {
             width: '4px',
