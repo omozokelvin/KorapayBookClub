@@ -14,7 +14,7 @@ export default function BgShadow(props: Props) {
     >
       <g filter="url(#filter0_d_9149_5496)">
         <path
-          fill-rule="evenodd"
+          fillRule="evenodd"
           clipRule="evenodd"
           d="M30 0H250V330H30V0Z"
           fill="white"
@@ -28,7 +28,7 @@ export default function BgShadow(props: Props) {
           width="280"
           height="390"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
           <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix

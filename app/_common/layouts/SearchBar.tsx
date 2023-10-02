@@ -40,7 +40,7 @@ export default function SearchBar() {
 
       setQueryParam(QueryParamEnum.search, query);
     },
-    []
+    [setQueryParam]
   );
 
   const debouncedChangeHandler = useMemo(
